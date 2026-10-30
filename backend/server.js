@@ -3,6 +3,7 @@ const authRoutes = require("./routes/auth");
 const express = require("express");
 const cors = require("cors");
 const pool = require("./db");
+const applicationRoutes = require("./routes/applications");
 
 
 const app = express();
@@ -10,6 +11,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use("/api/auth", authRoutes);
+app.use("/api/applications", applicationRoutes);
 
 app.get("/", (req, res) => {
   res.send("Job Tracker API is running!");
